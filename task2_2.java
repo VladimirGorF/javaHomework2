@@ -47,9 +47,7 @@ public class task2_2 {
             fw.append("\n");
 
             StringBuilder sb2 = new StringBuilder(); // создаем еще стрингбилдер для передачи даты и времени события
-            for (int i = 0; i < 1; i++) {
-                sb2.append(LocalDateTime.now());
-            }
+            sb2.append(LocalDateTime.now());
             fw.append(sb2);
             fw.append("\n");
             fw.flush();

@@ -10,7 +10,7 @@ public class task2_3 {
 
         String jsonString = "{'фамилия':'Иванов','оценка':'5','предмет':'Математика'}, {'фамилия':'Петров','оценка':'3','предмет':'Пение'}, {'фамилия':'Краснов','оценка':'5','предмет':'Физика'}";
 
-        String [] helpString = new String[3]; // создаем вспомогательный массив из трех элементов
+        String[] helpString = new String[3]; // создаем вспомогательный массив из трех элементов
         for (int i = 0; i < 1; i++) {
             helpString[0] = "Студент ";
             helpString[1] = "получил ";
@@ -31,7 +31,7 @@ public class task2_3 {
                         if (jsonArrBlock[j].equals("'")) {
                             break;
                         } else {
-                            sb.append(jsonArrBlock[j]);  // берем символы имен и тащим в хранилище
+                            sb.append(jsonArrBlock[j]); // берем символы имен и тащим в хранилище
                         }
                     }
                     sb.append(" ");
@@ -39,42 +39,37 @@ public class task2_3 {
             }
         }
         String arr = sb.toString();
-        String [] arrStorage = arr.split(" ");  // здесь хранилище входных данных из json строки
-        
-        String [] finishArr = new String [arrStorage.length * 2];  // теперь надо штмаповать строки
-        
+        String[] arrStorage = arr.split(" "); // здесь хранилище входных данных из json строки
+
+        String[] finishArr = new String[arrStorage.length * 2]; // теперь надо штмаповать строки
+
         int counter = 0;
         int k = 0;
         int l = 0;
-        for (int i = 0; i < arrStorage.length * 2; i++) {  
-            if(i%2 == 0){                          // если индекс четный, то добавляем элемент из HelpString, иначе элемент из Storage
+        for (int i = 0; i < arrStorage.length * 2; i++) {
+            if (i % 2 == 0) { // если индекс четный, то добавляем элемент из HelpString, иначе элемент из
+                              // Storage
                 finishArr[i] = helpString[k];
                 k++;
                 counter++;
-                if (counter == 3){              // если счетчик дошел до 3, обнуляем индексы 
+                if (counter == 3) { // если счетчик дошел до 3, обнуляем индексы
                     k = 0;
                     counter = 0;
                 }
-            } else{
+            } else {
                 finishArr[i] = arrStorage[l];
                 l++;
             }
         }
         int count = 0;
-        for (String string : finishArr) {     // форматированный вывод строк
+        for (String string : finishArr) { // форматированный вывод строк
             System.out.printf("%s ", string);
             count++;
-            if (count == 6){
+            if (count == 6) {
                 System.out.println();
                 count = 0;
             }
-            
-
-           
-        } 
-
-       
-
+        }
         System.out.println();
     }
 }
