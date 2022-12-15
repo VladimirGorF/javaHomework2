@@ -14,8 +14,9 @@ public class task2_4 {
     public static void logger(int arg) {
         try (FileWriter fw = new FileWriter("file.txt", true)) {
 
-            StringBuilder sb = new StringBuilder(); // создаем строку стрингбилдер для записи массива в строку
+            StringBuilder sb = new StringBuilder(); // создаем строку стрингбилдер для записи массива в строку         
             sb.append(arg);
+            fw.write("Резултат вычислений = ");
             fw.append(sb);
             fw.append("\n");
 
@@ -28,7 +29,7 @@ public class task2_4 {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     public static void main(String[] args) {
         try {
             Scanner iScanner = new Scanner(System.in);
@@ -52,15 +53,15 @@ public class task2_4 {
                     break;
                 case "-":
                     System.out.printf("%d - %d = %d\n", n, c, dif);
-                    logger(sum);
+                    logger(dif);
                     break;
                 case "*":
                     System.out.printf("%d * %d = %d\n", n, c, mult);
-                    logger(sum);
+                    logger(mult);
                     break;
                 case "/":
                     System.out.printf("%d / %d = %d\n", n, c, div);
-                    logger(sum);
+                    logger(div);
                     break;
             }
             
